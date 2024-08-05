@@ -1,8 +1,15 @@
 {
+	"scripts": {
+		"start": "ts-node ./src/app"
+	},
 	"devDependencies": {
+		"@types/node": "^22.1.0",
 		"typescript": "^5.5.4"
 	},
 	"dependencies": {
-		"grammy": "^1.28.0"
+		"@grammyjs/conversations": "^1.2.0",
+		"dotenv": "^16.4.5",
+		"grammy": "^1.28.0",
+		"ts-node": "^10.9.2"
 	}
 }
