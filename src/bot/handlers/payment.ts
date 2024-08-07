@@ -1,13 +1,14 @@
 import { Conversation } from "@grammyjs/conversations";
 import { InlineKeyboard } from "grammy";
 import type { BotContext } from "@/types/bot";
+import { REPOSITORY } from "../../infra";
 
 export async function startPaymentProcess(conversation: Conversation<BotContext>, ctx: BotContext) {
     // Remove the loading clock
     await ctx.answerCallbackQuery();
 
     await ctx.replyWithPhoto(
-        "https://github.html.zone/dnevend/tg-3000-bot",
+        REPOSITORY.cover,
         {
             caption:
                 "Send the amount you would like to donate.",
