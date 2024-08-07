@@ -1,6 +1,7 @@
 {
 	"scripts": {
-		"start": "ts-node ./src/app"
+		"dev": "ENV=dev ts-node ./src/app",
+		"start": "ENV=prod ts-node ./src/app"
 	},
 	"devDependencies": {
 		"@types/node": "^22.1.0",
@@ -8,8 +9,11 @@
 	},
 	"dependencies": {
 		"@grammyjs/conversations": "^1.2.0",
+		"@grammyjs/storage-file": "^2.4.2",
 		"dotenv": "^16.4.5",
 		"grammy": "^1.28.0",
-		"ts-node": "^10.9.2"
+		"https-proxy-agent": "^7.0.5",
+		"ts-node": "^10.9.2",
+		"winston": "^3.13.1"
 	}
 }

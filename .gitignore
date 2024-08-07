@@ -40,3 +40,6 @@ yarn-error.log
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# 缓存数据
+sessions
