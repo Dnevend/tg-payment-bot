@@ -2,10 +2,22 @@ import { Conversation } from "@grammyjs/conversations";
 import { InlineKeyboard } from "grammy";
 import type { BotContext } from "@/types/bot";
 import { REPOSITORY } from "../../infra";
+import { generatePaymentLink, verifyTransactionExistance } from "../../utils/ton";
+import 'dotenv/config'
+import { Address } from "ton";
 
 export async function startPaymentProcess(conversation: Conversation<BotContext>, ctx: BotContext) {
     // Remove the loading clock
     await ctx.answerCallbackQuery();
+
+    const keyboard = new InlineKeyboard()
+        .text('💎 Pay with TON', 'pay_with_ton')
+        .row()
+        .text('🌟 Pay with Stars', 'pay_with_stars')
+
+    const paymentWay = await conversation.waitForCallbackQuery(["pay_with_ton", "pay_with_stars"], {
+        otherwise: (ctx) => ctx.reply('选择支付方式！', { reply_markup: keyboard })
+    })
 
     await ctx.replyWithPhoto(
         REPOSITORY.cover,
@@ -26,12 +38,36 @@ export async function startPaymentProcess(conversation: Conversation<BotContext>
     conversation.session.amount = amount;
     conversation.session.comment = comment;
 
-    ctx.api.sendInvoice(ctx.chat!.id, 'Donate', 'Donate for public repository.', `donate:${ctx.chat?.id}:${amount}`, 'XTR', [{ label: 'Donation', amount: amount }])
+    if (paymentWay.match === 'pay_with_ton') {
+        const tonhubPaymentLink = generatePaymentLink(process.env.OWNER_WALLET!, amount, comment, 'tonhub')
+        const tonkeeperPaymentLink = generatePaymentLink(process.env.OWNER_WALLET!, amount, comment, 'tonkeeper')
 
-    const menu = new InlineKeyboard();
+        const menu = new InlineKeyboard()
+            .url("Click to pay in TonHub", tonhubPaymentLink)
+            .row()
+            .url("Click to pay in TonKeeper", tonkeeperPaymentLink)
+            .row()
+            .text(`I sent ${amount} TON`, "check_transaction");
 
-    await ctx.reply(
-        `Thanks for your donate.`,
-        { reply_markup: menu, parse_mode: "HTML" }
-    );
+        await ctx.reply(
+            `
+    Fine, all you have to do is transfer ${amount} TON to the wallet <code>${process.env.OWNER_WALLET}</code> with the comment <code>${comment}</code>.
+    
+    <i>WARNING: I am currently working on ${process.env.NETWORK}</i>
+    
+    P.S. You can conveniently make a transfer by clicking on the appropriate button below and confirm the transaction in the offer`,
+            { reply_markup: menu, parse_mode: "HTML" }
+        );
+    } else if (paymentWay.match === 'pay_with_stars') {
+        ctx.api.sendInvoice(ctx.chat!.id, 'Donate', 'Donate for public repository.', `donate:${ctx.chat?.id}:${amount}`, 'XTR', [{ label: 'Donation', amount: amount }])
+    }
+
+    await ctx.reply(`Thanks for your donate.`);
+}
+
+
+export async function checkTransaction(ctx: BotContext) {
+    console.log('ctx =>', ctx.session)
+    const verifyRes = await verifyTransactionExistance(process.env.OWNER_WALLET as unknown as Address, ctx.session.amount, ctx.session.comment)
+    console.log('transaction check success :', verifyRes)
 }

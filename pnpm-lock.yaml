@@ -16,6 +16,9 @@ dependencies:
   https-proxy-agent:
     specifier: ^7.0.5
     version: registry.npmmirror.com/https-proxy-agent@7.0.5
+  ton:
+    specifier: ^13.9.0
+    version: registry.npmmirror.com/ton@13.9.0(ton-core@0.53.0)(ton-crypto@3.2.0)
   ts-node:
     specifier: ^10.9.2
     version: registry.npmmirror.com/ts-node@10.9.2(@types/node@22.1.0)(typescript@5.5.4)
@@ -210,6 +213,16 @@ packages:
     version: 3.2.5
     dev: false
 
+  registry.npmmirror.com/axios@0.25.0:
+    resolution: {integrity: sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/axios/-/axios-0.25.0.tgz}
+    name: axios
+    version: 0.25.0
+    dependencies:
+      follow-redirects: registry.npmmirror.com/follow-redirects@1.15.6
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
   registry.npmmirror.com/color-convert@1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/color-convert/-/color-convert-1.9.3.tgz}
     name: color-convert
@@ -261,6 +274,12 @@ packages:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/create-require/-/create-require-1.1.1.tgz}
     name: create-require
     version: 1.1.1
+    dev: false
+
+  registry.npmmirror.com/dataloader@2.2.2:
+    resolution: {integrity: sha512-8YnDaaf7N3k/q5HnTJVuzSyLETjoZjVmHc4AeKAzOvKHEFQKcn64OKBfzHYtE9zGjctNM7V9I0MfnUVLpi7M5g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/dataloader/-/dataloader-2.2.2.tgz}
+    name: dataloader
+    version: 2.2.2
     dev: false
 
   registry.npmmirror.com/debug@4.3.6:
@@ -316,6 +335,18 @@ packages:
     version: 1.1.0
     dev: false
 
+  registry.npmmirror.com/follow-redirects@1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.6.tgz}
+    name: follow-redirects
+    version: 1.15.6
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
+
   registry.npmmirror.com/grammy@1.28.0:
     resolution: {integrity: sha512-TwCj5IHlK0I1fhfIGPIhMP61L5mmub7NMMswrpsqZSjtzo7iDDwVIz1dvsKj8FhX046AfAM/Lt99nW8FzIEKgQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/grammy/-/grammy-1.28.0.tgz}
     name: grammy
@@ -366,6 +397,12 @@ packages:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/isexe/-/isexe-2.0.0.tgz}
     name: isexe
     version: 2.0.0
+    dev: false
+
+  registry.npmmirror.com/jssha@3.2.0:
+    resolution: {integrity: sha512-QuruyBENDWdN4tZwJbQq7/eAK85FqrI4oDbXjy5IBhYD+2pTJyBUWZe8ctWaCkrV0gy6AaelgOZZBMeswEa/6Q==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/jssha/-/jssha-3.2.0.tgz}
+    name: jssha
+    version: 3.2.0
     dev: false
 
   registry.npmmirror.com/kuler@2.0.0:
@@ -476,10 +513,72 @@ packages:
       safe-buffer: registry.npmmirror.com/safe-buffer@5.2.1
     dev: false
 
+  registry.npmmirror.com/symbol.inspect@1.0.1:
+    resolution: {integrity: sha512-YQSL4duoHmLhsTD1Pw8RW6TZ5MaTX5rXJnqacJottr2P2LZBF/Yvrc3ku4NUpMOm8aM0KOCqM+UAkMA5HWQCzQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/symbol.inspect/-/symbol.inspect-1.0.1.tgz}
+    name: symbol.inspect
+    version: 1.0.1
+    dev: false
+
+  registry.npmmirror.com/teslabot@1.5.0:
+    resolution: {integrity: sha512-e2MmELhCgrgZEGo7PQu/6bmYG36IDH+YrBI1iGm6jovXkeDIGa3pZ2WSqRjzkuw2vt1EqfkZoV5GpXgqL8QJVg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/teslabot/-/teslabot-1.5.0.tgz}
+    name: teslabot
+    version: 1.5.0
+    dev: false
+
   registry.npmmirror.com/text-hex@1.0.0:
     resolution: {integrity: sha512-uuVGNWzgJ4yhRaNSiubPY7OjISw4sw4E5Uv0wbjp+OzcbmVU/rsT8ujgcXJhn9ypzsgr5vlzpPqP+MBBKcGvbg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/text-hex/-/text-hex-1.0.0.tgz}
     name: text-hex
     version: 1.0.0
+    dev: false
+
+  registry.npmmirror.com/ton-core@0.53.0(ton-crypto@3.2.0):
+    resolution: {integrity: sha512-uO/U1oVLdEliWWbwfNQQK+61C+KM0ehcTdHQ6cN0WSEH2UzGfdVFpC4Wb0ph+wUYe/5njl7TA0uL9nif9Q6qwA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ton-core/-/ton-core-0.53.0.tgz}
+    id: registry.npmmirror.com/ton-core/0.53.0
+    name: ton-core
+    version: 0.53.0
+    peerDependencies:
+      ton-crypto: '>=3.2.0'
+    dependencies:
+      symbol.inspect: registry.npmmirror.com/symbol.inspect@1.0.1
+      ton-crypto: registry.npmmirror.com/ton-crypto@3.2.0
+    dev: false
+
+  registry.npmmirror.com/ton-crypto-primitives@2.0.0:
+    resolution: {integrity: sha512-K+qKjpS0h9sPW6oExcpxnzuQ7nEgHEiDKwIqE/jWD25o8iFGe3FWj1gKxFNbKE9wwYKc5IV8FwrU+raF0KO5nQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ton-crypto-primitives/-/ton-crypto-primitives-2.0.0.tgz}
+    name: ton-crypto-primitives
+    version: 2.0.0
+    dependencies:
+      jssha: registry.npmmirror.com/jssha@3.2.0
+    dev: false
+
+  registry.npmmirror.com/ton-crypto@3.2.0:
+    resolution: {integrity: sha512-fltdBNQ45gARMuGMEOjPZWPJ5eSql8p3CA0Dj7tPv5lhU5ziT8SxXLAzDraR9HJ8YpjBHLVvYyhMLRiEwxgtMQ==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ton-crypto/-/ton-crypto-3.2.0.tgz}
+    name: ton-crypto
+    version: 3.2.0
+    dependencies:
+      jssha: registry.npmmirror.com/jssha@3.2.0
+      ton-crypto-primitives: registry.npmmirror.com/ton-crypto-primitives@2.0.0
+      tweetnacl: registry.npmmirror.com/tweetnacl@1.0.3
+    dev: false
+
+  registry.npmmirror.com/ton@13.9.0(ton-core@0.53.0)(ton-crypto@3.2.0):
+    resolution: {integrity: sha512-IjZa4vFsyYHzQFY3kMSK/vw8T9b4zSJlSkZOgD8qeP4AFVxcD6pZ7TxfATwLJnA/4MCbaM9DY0V076oMjluDQg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ton/-/ton-13.9.0.tgz}
+    id: registry.npmmirror.com/ton/13.9.0
+    name: ton
+    version: 13.9.0
+    peerDependencies:
+      ton-core: '>=0.53.0'
+      ton-crypto: '>=3.2.0'
+    dependencies:
+      axios: registry.npmmirror.com/axios@0.25.0
+      dataloader: registry.npmmirror.com/dataloader@2.2.2
+      symbol.inspect: registry.npmmirror.com/symbol.inspect@1.0.1
+      teslabot: registry.npmmirror.com/teslabot@1.5.0
+      ton-core: registry.npmmirror.com/ton-core@0.53.0(ton-crypto@3.2.0)
+      ton-crypto: registry.npmmirror.com/ton-crypto@3.2.0
+      zod: registry.npmmirror.com/zod@3.23.8
+    transitivePeerDependencies:
+      - debug
     dev: false
 
   registry.npmmirror.com/tr46@0.0.3:
@@ -527,6 +626,12 @@ packages:
       typescript: registry.npmmirror.com/typescript@5.5.4
       v8-compile-cache-lib: registry.npmmirror.com/v8-compile-cache-lib@3.0.1
       yn: registry.npmmirror.com/yn@3.1.1
+    dev: false
+
+  registry.npmmirror.com/tweetnacl@1.0.3:
+    resolution: {integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/tweetnacl/-/tweetnacl-1.0.3.tgz}
+    name: tweetnacl
+    version: 1.0.3
     dev: false
 
   registry.npmmirror.com/typescript@5.5.4:
@@ -613,4 +718,10 @@ packages:
     name: yn
     version: 3.1.1
     engines: {node: '>=6'}
+    dev: false
+
+  registry.npmmirror.com/zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/zod/-/zod-3.23.8.tgz}
+    name: zod
+    version: 3.23.8
     dev: false

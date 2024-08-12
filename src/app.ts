@@ -4,7 +4,7 @@ import { conversations, createConversation } from '@grammyjs/conversations'
 import { HttpsProxyAgent } from 'https-proxy-agent'
 import { BotContext, SessionData } from './types/bot'
 
-import { startPaymentProcess } from './bot/handlers/payment'
+import { checkTransaction, startPaymentProcess } from './bot/handlers/payment'
 import error from './bot/handlers/error'
 import handleDonate from './bot/handlers/donate'
 import { FileAdapter } from '@grammyjs/storage-file'
@@ -51,6 +51,7 @@ async function runApp() {
     bot.callbackQuery('donate', async (ctx: BotContext) => {
         await ctx.conversation.enter('startPaymentProcess')
     })
+    bot.callbackQuery('check_transaction', checkTransaction)
 
     bot.on('pre_checkout_query', (ctx: BotContext) => {
         try {
