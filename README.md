@@ -6,7 +6,7 @@ Telegram Bot 支付机器人
 
 - [x] Interact with BOT
 - [x] Stars payment
-- [ ] TON payment
+- [x] TON payment
 
 ## Reference
 
